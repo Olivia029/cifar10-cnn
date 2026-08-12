@@ -2,7 +2,7 @@
 
 A complete image classification project built with **Python and PyTorch**, using the **CIFAR-10 dataset** to train a Convolutional Neural Network (CNN) capable of classifying images into ten different categories.
 
-The project is structured as a small, reproducible machine learning system rather than as a single training script. It separates dataset preparation, data loading, model architecture, training, inference, and experimentation into independent components.
+The project is structured as a small, reproducible machine learning system. It separates dataset preparation, data loading, model architecture, training, inference, and experimentation into independent components.
 
 The main objective is not only to obtain a working classifier, but also to demonstrate a clear understanding of the fundamentals behind convolutional neural networks, image preprocessing, supervised learning, model evaluation, and PyTorch's training workflow.
 
@@ -459,12 +459,6 @@ The main checkpoint produced by the training script is:
 models/best_model.pth
 ```
 
-### `notebooks/`
-
-Contains exploratory experiments and visual analysis.
-
-The notebook is intended to demonstrate the experimental side of the project, while the reusable implementation remains in `src/`.
-
 ### `src/dataset.py`
 
 Responsible for:
@@ -690,46 +684,6 @@ Using device: cpu
 Predicted class: Automobile
 Confidence: 91.27%
 ```
-
----
-
-# Running the Notebook
-
-The project also includes:
-
-```text
-notebooks/experiments.ipynb
-```
-
-The notebook is intended for experimentation and analysis rather than containing the core reusable implementation.
-
-Start Jupyter with:
-
-```bash
-jupyter notebook
-```
-
-or:
-
-```bash
-jupyter lab
-```
-
-Alternatively, open the notebook directly in Visual Studio Code.
-
-When VS Code asks for a kernel, select the Python interpreter from the project's virtual environment:
-
-```text
-.venv
-```
-
-The selected interpreter should correspond to:
-
-```text
-.venv/bin/python
-```
-
-This is important because the notebook must use the same environment in which PyTorch, torchvision, NumPy, and the other project dependencies are installed.
 
 ---
 

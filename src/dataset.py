@@ -39,16 +39,3 @@ def get_datasets(data_dir="./data"):
     )
 
     return train_dataset, test_dataset
-
-def get_train_transform():
-    train_transform, _ = get_transforms()
-    return train_transform
-
-
-def get_test_transform():
-    test_transform = transforms.Compose([
-        transforms.Resize((32, 32)), 
-        transforms.ToTensor(),
-        transforms.Normalize(CIFAR10_MEAN, CIFAR10_STD),
-    ])
-    return test_transform

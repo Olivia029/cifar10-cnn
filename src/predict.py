@@ -1,11 +1,9 @@
 import argparse
-
+import torchvision.transforms as T
 import torch
+from dataset import CIFAR10_MEAN, CIFAR10_STD
 from PIL import Image
-
-from dataset import get_test_transform
 from model import CNNModel
-
 
 CLASS_NAMES = [
     "Airplane", "Automobile", "Bird", "Cat", "Deer",
@@ -27,12 +25,14 @@ def load_model(model_path, device):
 
 def predict_image(model, image_path, device):
 
-    transform = get_test_transform()
+    transform = T.Compose([
+        T.Resize((32, 32)),
+        T.ToTensor(),
+        T.Normalize(CIFAR10_MEAN, CIFAR10_STD)
+    ])
 
     image = Image.open(image_path).convert("RGB")
-
-    image_tensor = transform(image) 
-    image_tensor = image_tensor.unsqueeze(0).to(device) 
+    image_tensor = transform(image).unsqueeze(0).to(device) 
 
     with torch.no_grad():
         outputs = model(image_tensor) 
